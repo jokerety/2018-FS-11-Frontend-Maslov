@@ -1,6 +1,4 @@
-
 import shadowStyles from './shadow.css';
-
 const template = `
 	<style>${shadowStyles.toString()}</style>
 	<div class="file-drop">
@@ -9,8 +7,6 @@ const template = `
         <input type="file"> 
     </div>
 `;
-
-
 class FormFile extends HTMLElement {
   constructor() {
     super();
@@ -19,15 +15,12 @@ class FormFile extends HTMLElement {
     this._initElements();
     this._addHandlers();
   }
-
   static get observedAttributes() {
     return [];
   }
-
   attributeChangedCallback(attrName, oldVal, newVal) {
     this._elements.input[attrName] = newVal;
   }
-
   _initElements() {
     const input = this.shadowRoot.querySelector('input');
     const image = this.shadowRoot.querySelector('img');
@@ -38,11 +31,9 @@ class FormFile extends HTMLElement {
       fileDrop,
     };
   }
-
   _addHandlers() {
     this._elements.input.addEventListener('change', this._onChange.bind(this));
   }
-
   _onChange(event) {
     const url = URL.createObjectURL(event.target.files[0]);
     this._elements.image.onload = () => URL.revokeObjectURL(url);
@@ -50,5 +41,4 @@ class FormFile extends HTMLElement {
     return false;
   }
 }
-
 customElements.define('form-file', FormFile);
