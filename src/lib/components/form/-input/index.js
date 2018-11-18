@@ -4,12 +4,8 @@ import shadowStyles from './shadow.css';
 const template = `
 	<style>${shadowStyles.toString()}</style>
 	<input />
-	<slot name="icon"></slot>
 `;
 
-// const iconTemplate = `
-//	<div class="${styles.icon}" />
-// `;
 
 class FormInput extends HTMLElement {
   constructor() {

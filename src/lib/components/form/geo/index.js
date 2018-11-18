@@ -1,15 +1,15 @@
-
 import shadowStyles from './shadow.css';
 import getPosition from './getPosition';
 
 const template = `
 	<style>${shadowStyles.toString()}</style>
+	
+	<input type="hidden" name="coord">
 	<div class="geo">
 	    <button class="button">Get your geoposition</button>
     </div>
 	
 `;
-
 class FormGeo extends HTMLElement {
   constructor() {
     super();
@@ -30,9 +30,11 @@ class FormGeo extends HTMLElement {
   _initElements() {
     const button = this.shadowRoot.querySelector('button');
     const geo = this.shadowRoot.querySelector('.geo');
+    const input = this.shadowRoot.querySelector('input');
     this._elements = {
       button,
       geo,
+      input,
     };
   }
 
@@ -48,6 +50,7 @@ class FormGeo extends HTMLElement {
         .then(
           (result) => {
             this._elements.geo.innerHTML = `latitude: ${result.coords.latitude} , longtitude: ${result.coords.longitude}`;
+            this._elements.input.value = `latitude: ${result.coords.latitude} , longtitude: ${result.coords.longitude}`;
           },
           (error) => {
             this._elements.geo.innerHTML = `${error}`;
@@ -56,5 +59,4 @@ class FormGeo extends HTMLElement {
     });
   }
 }
-
 customElements.define('form-geo', FormGeo);
