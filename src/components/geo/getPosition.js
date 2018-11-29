@@ -1,4 +1,6 @@
-function getPosition(options) {
+import React from 'react';
+
+export function getPosition(options) {
   return new Promise((resolve, reject) => {
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -11,5 +13,3 @@ function getPosition(options) {
     );
   });
 }
-
-export default getPosition;
