@@ -21,3 +21,4 @@ export class InputForm extends Component {
 		);
 	}
 }
+export default InputForm;

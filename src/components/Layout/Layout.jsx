@@ -1,17 +1,17 @@
 import React from 'react';
 import Aux from '../../hoc/Aux/Aux';
 import classes from './Layout.module.css';
-import Header from './../Header/Header';
+import FixedNavbar from '../Header/Header';
+import LoginUser from '../User/login';
 
 
-
-const layout = ({children}) => (
-    <Aux>
-        <Header/>
-        <main className={classes.Content}>
-            {children}
-        </main>
-    </Aux>
+const layout = ({ children }) => (
+  <Aux>
+    <FixedNavbar />
+    <main className={classes.Content}>
+      {children}
+    </main>
+  </Aux>
 );
 
 export default layout;

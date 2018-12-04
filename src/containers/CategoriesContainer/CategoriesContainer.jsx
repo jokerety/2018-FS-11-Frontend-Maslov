@@ -1,47 +1,22 @@
-import React, {Component} from  'react';
-import Categories from '../../components/Categories/Categories';
+import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import CategoryPage from '../../components/Categories/TaskList/TaskList';
-
-const Intro = () => (
-    <section className="jumbotron text-center">
-        <div className="container">
-            <h1 className="jumbotron-heading">Список Категорий</h1>
-            <p className="lead text-muted">Задания разбиты на категории, щелкай на категорию и перейдешь к списку
-                заданий!</p>
-        </div>
-    </section>
-);
-
+import TaskList from '../../components/Categories/TaskList/TaskList';
+import CategoriesShow from '../../components/Categories/Categories';
+import LoginPage from '../../components/User/login';
 
 class CategoriesContainer extends Component {
-    state = {
-        categories: CategoriesContainer.createCategories()
-    };
-    constructor(props) {
-        super(props)
-     }
-    static createCategories() {
-        return new Array(15).fill(null).map((_,index) => {
-            return {
-                id: index,
-                text: `Категория номер ${index}`,
-            }
-        })
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        return (
-            <div>
-                 <Intro/>
-                <Categories categories={this.state.categories}/>
-                <Route path='/category/:id' exact component={CategoryPage} />
-            </div>
+  render() {
+    return (
+      <div>
+        <Route exact path="/category" component={CategoriesShow} />
+        <Route exact path="/category/:id/detail" component={TaskList} />
+      </div>
 
-
-
-        )
-    }
-
+    );
+  }
 }
 export default CategoriesContainer;

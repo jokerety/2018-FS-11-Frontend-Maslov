@@ -1,13 +1,11 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import classes from './Category.module.css';
-import {Link,withRouter } from "react-router-dom";
 
-const category = ({category, match}) => {
-    return (
-        <div className={classes.CategoryContainer}>
-            <Link to={`${match.path}/${category.id}`}>{category.text}></Link>
-        </div>
-    )
-};
+const category = ({ category, match }) => (
+  <div className={classes.CategoryContainer}>
+    <ul><Link to={`${match.path}/${category.id}/detail/`}>{category.name}</Link></ul>
+  </div>
+);
 
 export default withRouter(category);
