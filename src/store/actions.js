@@ -1,0 +1,4 @@
+export const CATEGORIES_INIT = 'INIT_CATEGORIES';
+export const CATEGORIES_REMOVE = 'CATEGORIES_REMOVE';
+export const USER_LOGIN = 'USER_LOGIN';
+export const USER_LOGOUT = 'USER_LOGOUT';
