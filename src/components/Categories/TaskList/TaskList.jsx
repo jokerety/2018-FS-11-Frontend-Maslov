@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-  MDBCard, MDBListGroup, MDBListGroupItem, MDBContainer, Container,
+  MDBCard, MDBListGroup, MDBContainer, Container,
 } from 'mdbreact';
 import Task from './TaskDetail';
 import {getAllTasks} from "../../../store/actions/categories";
@@ -25,7 +25,7 @@ class TaskList extends Component {
   }
   render() {
     const isLoaded = this.props.isLoaded;
-    let  tasks = [];
+    let tasks = [];
     let category =  {
       id: 1, name: 'Категория 1', description: 'Описание категории 1', tasks_id: [1, 2, 4, 3],
     };

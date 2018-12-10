@@ -8,10 +8,6 @@ import TaskPage from '../../components/Categories/TaskList/TaskPage';
 
 
 class CategoriesContainer extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let authRedirect = null;
     if (!this.props.isAuthed) {
