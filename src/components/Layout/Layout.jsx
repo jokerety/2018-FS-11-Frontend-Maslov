@@ -2,8 +2,6 @@ import React from 'react';
 import Aux from '../../hoc/Aux/Aux';
 import classes from './Layout.module.css';
 import FixedNavbar from '../Header/Header';
-import LoginUser from '../User/login';
-
 
 const layout = ({ children }) => (
   <Aux>

@@ -1,11 +1,18 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import classes from './TaskDetail.module.css';
+import { MDBListGroupItem } from 'mdbreact';
 
-const task = ({ task, match }) => (
-  <div className={classes.DetailContainer}>
-    <ul><Link to={`${match.path}/${task.id}`}>{task.name}</Link></ul>
-  </div>
-);
+const task = ({ match , task}) => {
+
+    return (
+        <MDBListGroupItem>
+            <Link to={{ pathname: `${match.url}task/${task.id}/` }}>{task.name}</Link>
+              <p> Автор: { task.author_id }</p>
+              <p> Описание : { task.description}</p>
+          </MDBListGroupItem>
+        );
+};
+
+
 
 export default withRouter(task);

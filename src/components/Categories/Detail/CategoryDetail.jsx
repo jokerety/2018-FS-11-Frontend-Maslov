@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import classes from './Category.module.css';
+import { MDBListGroupItem } from 'mdbreact';
 
 const category = ({ category, match }) => (
-  <div className={classes.CategoryContainer}>
-    <ul><Link to={`${match.path}/${category.id}/detail/`}>{category.name}</Link></ul>
-  </div>
+  <MDBListGroupItem>
+    <Link to={`${match.path}/${category.id}/detail/`}>{category.name}</Link>
+  </MDBListGroupItem>
 );
 
 export default withRouter(category);
