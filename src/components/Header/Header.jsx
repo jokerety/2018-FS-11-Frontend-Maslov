@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Container, View, Mask,
+  Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Container,
 } from 'mdbreact';
 import { connect } from 'react-redux';
 import * as actionTypes from '../../store/actions/actions';
@@ -33,8 +33,13 @@ class FixedNavbar extends Component {
 
   render() {
     const {
-      userId, isAuthed, Logout, users, isLoaded
+      userId, Logout, users, isLoaded
     } = this.props;
+    const handleLogout = function () {
+     Logout();
+     localStorage.clear();
+     }
+
     let userLogin = { username: '' };
     if (isLoaded) {
       userLogin = getElementById(users, userId);
@@ -65,7 +70,9 @@ class FixedNavbar extends Component {
                     </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink to="/" onClick={Logout}>Выход</NavLink>
+                    <NavLink to="/">
+                      <div className="aaa" onClick={handleLogout.bind(this)}>Выход</div>
+                    </NavLink>
                   </NavItem>
                 </NavbarNav>
               </Collapse>
@@ -111,7 +118,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   Logout: (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     dispatch({ type: actionTypes.LOGOUT });
   },
   getAllUsers: () => dispatch(getAllUsers()),

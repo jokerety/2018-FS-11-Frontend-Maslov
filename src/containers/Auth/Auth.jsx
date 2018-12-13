@@ -22,10 +22,10 @@ class Auth extends Component {
           valid: false,
           touched: false,
         },
-        password: {
+        newpassword: {
           elementType: 'input',
           elementConfig: {
-            type: 'password',
+            type: 'new-password',
             placeholder: 'Пароль',
           },
           value: '',
@@ -71,7 +71,7 @@ class Auth extends Component {
       event.preventDefault();
       this.props.onAuth(
         this.state.controls.username.value,
-        this.state.controls.password.value,
+        this.state.controls.newpassword.value,
       );
     };
 
@@ -110,7 +110,7 @@ class Auth extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  onAuth: (username, password) => dispatch(actions.auth(username, password)),
+  onAuth: (username, newpassword) => dispatch(actions.auth(username, newpassword)),
 });
 
 const mapStateToProps = state => ({

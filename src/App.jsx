@@ -7,7 +7,7 @@ import CategoriesContainer from './containers/CategoriesContainer/CategoriesCont
 import './App.css';
 import Auth from './containers/Auth/Auth';
 import {
-  Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Container, View, Mask, MDBView, MDBMask,
+  Mask, MDBView, MDBMask,
 } from 'mdbreact';
 import FeedbackContainer from './containers/FeedbackContainer/FeedbackContainer';
 import * as actions from './store/actions';

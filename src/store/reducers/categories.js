@@ -1,4 +1,5 @@
 import * as actionTypes from '../actions/actions';
+
 function getElementById(array, number) {
   return array.find(elem => elem.id === number);
 }
@@ -42,7 +43,7 @@ const newTask = (state, action) => {
   task.categories_id
     .map((categoryId) => {
       const category = getElementById(newCategories, categoryId);
-      category.tasks_id.push(task.id);
+      return category.tasks_id.push(task.id);
     });
 
   console.log(newCategories);
@@ -66,4 +67,6 @@ const reducer = (state = initialState, action) => {
       };
   }
 };
+
+
 export default reducer;

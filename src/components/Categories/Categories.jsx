@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-  Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Container, View, Mask,
-} from 'mdbreact';
-import {
-  MDBCard, MDBListGroup, MDBListGroupItem, MDBContainer,
+  MDBCard, MDBListGroup, MDBContainer, Container,
 } from 'mdbreact';
 import { getAllCategories } from '../../store/actions/categories';
 
@@ -31,18 +28,19 @@ class CategoriesShow extends Component {
 
   render() {
     const isLoaded = this.props.isLoaded;
-    let categoryList = 'Categories are loading';
-    if (isLoaded) {
-      categoryList = this.props.categories.map(category => (<Category key={category.id} category={category} />));
-      console.log(categoryList);
-    }
+    const loadingText = 'Categories are loading';
+
     return (
       <div>
         <Intro />
         <MDBContainer className="mx-auto">
           <MDBCard className="mx-auto" style={{ width: '22rem', marginTop: '1rem' }}>
             <MDBListGroup>
-              {categoryList}
+              {
+                isLoaded && this.props.categories.map(category => (
+                    <Category key={category.id} category={category} />
+                ) || loadingText
+              )}
             </MDBListGroup>
           </MDBCard>
         </MDBContainer>
