@@ -20,7 +20,7 @@ export const getUser = userId => ({
 });
 
 export const getAllUsers = () => (dispatch) => {
-  axios.get('http://localhost:8000/get_all_users/')
+  axios.get('http://172.18.0.4:8000/get_all_users/')
     .then((result) => {
       console.log(result);
       dispatch(getAllUsersToPayload(result.data));
@@ -29,7 +29,7 @@ export const getAllUsers = () => (dispatch) => {
 };
 
 export const getAllCategories = () => (dispatch) => {
-  axios.get('http://localhost:8000/get_all_categories/')
+  axios.get('http://172.18.0.4:8000/get_all_categories/')
     .then((result) => {
       console.log(result);
       dispatch(getAllCategoriesToPayload(result.data));
@@ -39,7 +39,7 @@ export const getAllCategories = () => (dispatch) => {
 
 
 export const getAllTasks = () => (dispatch) => {
-  axios.get('http://localhost:8000/get_all_tasks/')
+  axios.get('http://172.18.0.4:8000/get_all_tasks/')
     .then((result) => {
       console.log(result);
       dispatch(getAllTasksToPayload(result.data));
