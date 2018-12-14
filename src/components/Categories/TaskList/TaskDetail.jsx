@@ -7,7 +7,7 @@ const task = ({ match , task}) => {
     return (
         <MDBListGroupItem>
             <Link to={{ pathname: `${match.url}task/${task.id}/` }}>{task.name}</Link>
-              <p> Автор: { task.author_id }</p>
+              <p> Автор: { task.auth_id }</p>
               <p> Описание : { task.description}</p>
           </MDBListGroupItem>
         );
